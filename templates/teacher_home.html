@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p> 教师的首页 </p>
+  <p><a href="/login/out"> 退出教师登录 </a></p>
+  <p><a href="/course_add.html">添加课程</a></p>
+  <table border="2px" bgcolor="#deb887" aria-autocomplete="both">
+      <thead>
+        <tr>
+            <td>课程id </td>
+            <td>课程名字</td>
+            <td>课程描述</td>
+            <td>教师账号</td>
+            <td>课程最多人数</td>
+            <td>课程要求的最小人数</td>
+            <td>创建时间</td>
+            <td> 操作 </td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courseList  %}
+          <tr>
+            <td>{{ course.id }}</td>
+            <td>{{ course.name }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.teacher_account }}</td>
+            <td>{{ course.max_num }}</td>
+            <td>{{ course.min_num }}</td>
+            <td>{{ course.create_t }}</td>
+            <td>
+                <a href='/course/student/list?course_id= {{ course.id  }}'> 查看选课学生信息 </a>
+                <form action="/course/delete" method="post">
+                    <input type="text" hidden="hidden" name="course_id" value="{{ course.id }}"/>
+                    <input type="submit" value="删除课程">
+                </form>
+            </td>
+          </tr>
+       {% endfor %}
+      </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>提示框的三角形原理</title>
+		<style type="text/css">
+			#tips {
+				display: inline-block;
+				position: relative;
+				padding: 0px 15px;
+				border-radius: 5px;
+				border: 1px solid #DDD;
+			}
+			#tips:after,
+			#tips:before {
+				content: "";
+				position: absolute;
+				left: 10px;
+				bottom: -16px;
+				border: 8px solid transparent;
+				border-top: 8px solid #DDD;
+			}
+			#tips:after {
+				border-top: 8px solid #FFF;
+				bottom: -15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="tips">
+			<p>{{ msg }}</p>
+		</div>
+	</body>
+</html>

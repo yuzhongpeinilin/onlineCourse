@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <table border="1px">
+      <thead>
+      <tr>
+          <td>学号 </td>
+          <td>姓名</td>
+          <td>电话</td>
+          <td>年龄</td>
+          <td>性别</td>
+          <td>头像</td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for stu in studentList %}
+          <tr>
+          <td>{{ stu.account }}</td>
+          <td>{{ stu.username }}</td>
+          <td>{{ stu.phone }}</td>
+          <td>{{ stu.age }}</td>
+          {% if stu.sex == 1 %}
+             <td> 男</td>
+          {% else %}
+              <td>女</td>
+          {% endif %}
+          <td><img src="{{ stu.avatar  }}"/> </td>
+          </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <table border="1px" bgcolor="aqua">
+     <thead>
+     <tr>
+           <<td>课程id </td>
+            <td>课程名字</td>
+            <td>课程描述</td>
+            <td>教师账号</td>
+            <td>课程最多人数</td>
+            <td>课程要求的最小人数</td>
+            <td>创建时间</td>
+     </tr>
+     </thead>
+     <tbody>
+       {% for course in courseList  %}
+          <tr>
+            <td>{{ course.id }}</td>
+            <td>{{ course.name }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.teacher_account }}</td>
+            <td>{{ course.max_num }}</td>
+            <td>{{ course.min_num }}</td>
+            <td>{{ course.create_t }}</td>
+          {% endfor %}
+     </tbody>
+ </table>
+
+</body>
+</html>
